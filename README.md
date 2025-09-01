@@ -1,24 +1,60 @@
-# Rletter Format
+
 
 ## Installing
 
-*TODO*: Replace the `<github-organization>` with your GitHub organization.
-
-```bash
-quarto use template <github-organization>/rletter
+``` bash
+quarto use template filippogambarota/rletter
 ```
 
-This will install the extension and create an example qmd file that you can use as a starting place for your article.
+This will install the extension and create an example qmd file that you
+can use as a starting place for your response letter.
 
-## Using
+## Usage
 
-*TODO*: Describe how to use your format.
+These are the format-specific yaml parameters. The core feature is the
+[`latex-environment`](https://github.com/quarto-ext/latex-environment)
+filter that allows for including custom latex environments.
 
-## Format Options
+``` yaml
+---
+jou-name: "The most beautiful journal"
+title: "*The most beautiful paper: A systematic review.*"
+manuscript-number: "0000"
+format:
+  rletter-pdf: default
+filters: 
+  - latex-environment
+environments: [rcomment, changes]
+col-response: 0047b3
+---
+```
 
-*TODO*: If your format has options that can be set via document metadata, describe them.
+In particular, the `rcomment`:
 
-## Example
+``` markdown
+:::{.rcomment}
+text here
+:::
+```
 
-Here is the source code for a minimal sample document: [example.qmd](example.qmd).
+Define a comment from the reviewer that can be included into the
+response letter.
 
+Then `changes`:
+
+``` markdown
+:::{.changes}
+text here
+:::
+```
+
+Define the changes to the main manuscript.
+
+Finally, standard text without a specific environment is associated with
+authors’ responses.
+
+The `rcomment` are automatically numbered according to the reviewer
+number (for reviewer 1, comment 1.1, 1.2, etc.) and are included into
+the optional table of contents (`toc: true`).
+
+For a preview of the final results see the [pdf](template.pdf).
