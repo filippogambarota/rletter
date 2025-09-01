@@ -1,5 +1,3 @@
-
-
 ## Installing
 
 ``` bash
@@ -58,3 +56,9 @@ number (for reviewer 1, comment 1.1, 1.2, etc.) and are included into
 the optional table of contents (`toc: true`).
 
 For a preview of the final results see the [pdf](template.pdf).
+
+## NEWS
+
+### Version 1.0.0
+
+Initial release
