@@ -11,6 +11,10 @@
 \usepackage{titlesec}
 \usepackage{tocloft}
 \usepackage{etoolbox}  % for patching
+\usepackage{graphicx}
+
+% Fallback definition for \pandocbounded if missing
+\providecommand{\pandocbounded}[1]{#1}
 
 % PARAMS
 
@@ -124,6 +128,10 @@ $if(csl-refs)$
   % set entry spacing
   \setlength{\itemsep}{#2\baselineskip}}}
  {\end{list}}
+$endif$
+
+$if(highlighting-macros)$
+$highlighting-macros$
 $endif$
 
 \begin{document}
